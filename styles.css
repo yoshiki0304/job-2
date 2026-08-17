@@ -232,3 +232,61 @@
   .brand small{font-size:8px;}
   .footer-logo-wrap img{width:170px;max-width:76%;padding:6px;}
 }
+
+
+/* v15 fix: place the speech bubble itself at the horizontal center of the page */
+.problem-section{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.problem-banner{
+  width:min(92%, 560px);
+  margin:0 auto 34px !important;
+  left:auto !important;
+  right:auto !important;
+  padding:22px 18px !important;
+  min-height:170px;
+  box-sizing:border-box;
+}
+.problem-banner span,
+.problem-banner strong{
+  text-align:center !important;
+  width:100%;
+  margin:0 auto !important;
+}
+.problem-banner span{
+  font-size:18px;
+  line-height:1.2;
+}
+.problem-banner strong{
+  font-size:30px;
+  line-height:1.15;
+  margin-top:6px !important;
+}
+.problem-banner::after{
+  left:50% !important;
+  transform:translateX(-50%) !important;
+}
+.problem-banner .worried-face{
+  display:none !important;
+}
+@media (max-width:740px){
+  .problem-banner{
+    width:min(94%, 520px);
+    min-height:160px;
+    padding:18px 14px !important;
+    margin:0 auto 28px !important;
+  }
+  .problem-banner span{font-size:15px;}
+  .problem-banner strong{font-size:24px;line-height:1.12;}
+}
+@media (max-width:390px){
+  .problem-banner{
+    width:min(95%, 500px);
+    min-height:152px;
+    padding:16px 12px !important;
+  }
+  .problem-banner span{font-size:14px;}
+  .problem-banner strong{font-size:21px;}
+}
