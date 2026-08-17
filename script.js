@@ -1,21 +1,26 @@
-(() => {
-  const d = new Date();
-  const el = document.getElementById('todayText');
-  if (el) el.textContent = `本日 ${d.getMonth()+1}月${d.getDate()}日`;
+const track = document.getElementById('mangaTrack');
+const dots = Array.from(document.querySelectorAll('#mangaDots span'));
+const prevBtn = document.querySelector('.manga-arrow.left');
+const nextBtn = document.querySelector('.manga-arrow.right');
 
-  document.querySelectorAll('.faq-list details').forEach((item) => {
-    item.addEventListener('toggle', () => {
-      const btn = item.querySelector('summary b');
-      if (btn) btn.textContent = item.open ? '−' : '＋';
-    });
-  });
+function cardStep(){
+  const card = track.querySelector('.manga-card');
+  return card ? card.getBoundingClientRect().width + 14 : 240;
+}
 
-  const internal = document.querySelectorAll('a[href^="#"]');
-  internal.forEach(a => a.addEventListener('click', e => {
-    const id = a.getAttribute('href');
-    const target = document.querySelector(id);
-    if (!target) return;
-    e.preventDefault();
-    target.scrollIntoView({behavior:'smooth', block:'start'});
-  }));
-})();
+function updateDots(){
+  const step = cardStep();
+  const maxIndex = dots.length - 1;
+  const raw = Math.round(track.scrollLeft / step);
+  const index = Math.max(0, Math.min(maxIndex, raw));
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+}
+
+prevBtn.addEventListener('click', () => track.scrollBy({left: -cardStep(), behavior: 'smooth'}));
+nextBtn.addEventListener('click', () => track.scrollBy({left: cardStep(), behavior: 'smooth'}));
+track.addEventListener('scroll', updateDots, {passive:true});
+window.addEventListener('load', () => {
+  track.scrollLeft = track.scrollWidth;
+  updateDots();
+});
+window.addEventListener('resize', updateDots);
