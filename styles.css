@@ -479,3 +479,99 @@
     line-height: 1.22 !important;
   }
 }
+
+
+/* v20 popup */
+.line-popup-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .25s ease, visibility .25s ease;
+  z-index:1200;
+}
+.line-popup-overlay.is-visible{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+.line-popup{
+  width:min(92vw, 520px);
+  background:#fff;
+  border-radius:20px;
+  padding:26px 18px 22px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  position:relative;
+  text-align:center;
+  border:4px solid var(--line);
+}
+.line-popup-close{
+  position:absolute;
+  right:12px;
+  top:10px;
+  width:38px;
+  height:38px;
+  border:none;
+  border-radius:50%;
+  background:#efefef;
+  color:#444;
+  font-size:26px;
+  font-weight:900;
+  cursor:pointer;
+}
+.line-popup-lead{
+  margin:0;
+  color:var(--red);
+  font-size:18px;
+  font-weight:900;
+}
+.line-popup h2{
+  margin:8px 0 8px;
+  color:#111;
+  font-size:34px;
+  line-height:1.15;
+}
+.line-popup-copy{
+  margin:0 0 16px;
+  color:#333;
+  font-size:18px;
+  line-height:1.6;
+}
+.line-popup-button{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(#10d665,#05b84e);
+  color:#fff;
+  border-radius:14px;
+  min-height:86px;
+  display:grid;
+  grid-template-columns:64px 1fr 28px;
+  gap:10px;
+  align-items:center;
+  padding:10px 14px;
+  border:4px solid #fff;
+  box-shadow:0 5px 0 #048f3e,0 0 0 3px #058d3f;
+}
+.line-popup-button span:nth-child(2){display:block;text-align:center}
+.line-popup-button small{display:block;font-size:12px}
+.line-popup-button strong{display:block;font-size:24px;font-weight:900;letter-spacing:-.03em}
+.line-popup-button>i{font-style:normal;font-size:40px}
+@media (max-width:740px){
+  .line-popup{width:min(94vw, 420px);padding:22px 14px 18px;}
+  .line-popup h2{font-size:28px;}
+  .line-popup-lead{font-size:16px;}
+  .line-popup-copy{font-size:16px;}
+  .line-popup-button{min-height:76px;grid-template-columns:54px 1fr 24px;padding:8px 10px;}
+  .line-popup-button strong{font-size:20px;}
+}
+
+
+/* v21: remove problem banner and tighten spacing */
+.problem-section{padding-top:0 !important;}
+.problem-section .check-box{margin-top:0 !important;}

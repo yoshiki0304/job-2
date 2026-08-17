@@ -28,14 +28,13 @@
     </section>
 
     <section class="today-cta">
-      <p><span id="todayText">本日</span> <b>LINE相談受付中!!</b></p>
+      <p><span id="todayText">本日8月17日</span><b>LINE相談受付中!!</b></p>
       <a class="line-cta shine" href="https://lin.ee/xo4sCJy" target="_blank" rel="noopener">
         <span class="line-mark">LINE</span><span><small>＼ 30秒で相談完了 ／</small><strong>寮付き求人を無料で紹介</strong></span><i>›</i>
       </a>
     </section>
 
     <section class="problem-section" id="problem">
-      <div class="problem-banner"><span>1つでも<br>当てはまる方は</span><strong>今すぐご相談<br>ください!</strong><div class="worried-face">︵</div></div>
       <div class="check-box">
         <p><i>✓</i>住む家がなくなった</p>
         <p><i>✓</i>所持金が切れそう</p>
@@ -168,12 +167,67 @@
 <script>
 (function(){
   const el = document.getElementById('todayText');
-  if(!el) return;
-  const d = new Date();
-  const m = d.getMonth() + 1;
-  const day = d.getDate();
-  el.textContent = `本日 ${m}月${day}日`;
+  if(el){
+    const now = new Date();
+    const parts = new Intl.DateTimeFormat('ja-JP', {
+      timeZone: 'Asia/Tokyo',
+      month: 'numeric',
+      day: 'numeric'
+    }).formatToParts(now);
+    const month = parts.find(p => p.type === 'month')?.value || String(now.getMonth() + 1);
+    const day = parts.find(p => p.type === 'day')?.value || String(now.getDate());
+    el.textContent = `本日${month}月${day}日`;
+  }
+
+  const overlay = document.getElementById('linePopupOverlay');
+  const closeBtn = document.getElementById('linePopupClose');
+  const popupBtn = document.getElementById('linePopupButton');
+  if(!overlay || !closeBtn) return;
+
+  const showPopup = () => {
+    if (sessionStorage.getItem('linePopupClosed') === '1') return;
+    overlay.classList.add('is-visible');
+    overlay.setAttribute('aria-hidden', 'false');
+    sessionStorage.setItem('linePopupShown', '1');
+  };
+
+  const closePopup = () => {
+    overlay.classList.remove('is-visible');
+    overlay.setAttribute('aria-hidden', 'true');
+    sessionStorage.setItem('linePopupClosed', '1');
+  };
+
+  const handleScroll = () => {
+    if (sessionStorage.getItem('linePopupShown') === '1' || sessionStorage.getItem('linePopupClosed') === '1') return;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+    const scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const ratio = scrollTop / scrollable;
+    if (ratio >= 0.5) showPopup();
+  };
+
+  closeBtn.addEventListener('click', closePopup);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closePopup();
+  });
+  if (popupBtn) popupBtn.addEventListener('click', () => sessionStorage.setItem('linePopupClosed', '1'));
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('load', handleScroll);
 })();
 </script>
+
+<div class="line-popup-overlay" id="linePopupOverlay" aria-hidden="true">
+  <div class="line-popup" role="dialog" aria-modal="true" aria-labelledby="linePopupTitle">
+    <button class="line-popup-close" id="linePopupClose" aria-label="閉じる">×</button>
+    <p class="line-popup-lead">住まいも仕事もまとめて相談！</p>
+    <h2 id="linePopupTitle">LINEで問い合わせる</h2>
+    <p class="line-popup-copy">名古屋・愛知の寮付き求人を<br>無料でご案内します</p>
+    <a href="https://lin.ee/xo4sCJy" target="_blank" rel="noopener" class="line-popup-button shine" id="linePopupButton">
+      <span class="line-mark">LINE</span>
+      <span><small>＼ 30秒で完了 ／</small><strong>今すぐ相談する</strong></span>
+      <i>›</i>
+    </a>
+  </div>
+</div>
+
 </body>
 </html>
