@@ -580,3 +580,35 @@
 /* v23 popup reliability */
 body.popup-open{overflow:hidden;}
 .line-popup-overlay{z-index:9999 !important;}
+
+
+/* v25 footer privacy link and privacy page */
+.footer-company{font-size:12px !important;color:#d8d8d8 !important;line-height:1.75 !important;margin:10px 0 12px !important;}
+.footer-privacy-link{display:inline-block;color:#fff;text-decoration:underline;text-underline-offset:4px;font-size:14px;font-weight:800;margin:0 0 16px;}
+.footer-privacy-link:hover{opacity:.8;}
+.privacy-body{background:#f4f4f4;}
+.privacy-shell{background:#fff;}
+.privacy-topbar{border-bottom:4px solid var(--red);}
+.privacy-back{background:var(--red);color:#fff;border-radius:7px;padding:10px 14px;font-size:13px;font-weight:900;}
+.privacy-main{padding:44px 34px 64px;}
+.privacy-main h1{margin:0 0 18px;text-align:center;font-size:38px;line-height:1.25;color:#222;}
+.privacy-company-name{text-align:center;margin:0 0 38px;font-size:18px;}
+.privacy-section{margin:0 0 34px;}
+.privacy-section h2{margin:0 0 10px;font-size:22px;line-height:1.45;color:#222;}
+.privacy-section hr{border:0;border-top:2px solid #e4e4e4;margin:0 0 16px;}
+.privacy-section p{margin:0 0 14px;font-size:15px;line-height:1.95;color:#333;}
+.privacy-contact{margin-top:24px;padding:20px;border:2px solid #e4e4e4;border-radius:10px;background:#fafafa;}
+.privacy-contact p{margin:4px 0;}
+.privacy-bottom-back{display:block;width:min(100%,360px);margin:42px auto 0;background:var(--red);color:#fff;text-align:center;border-radius:8px;padding:16px 20px;font-weight:900;}
+.privacy-footer{padding-bottom:34px;}
+@media(max-width:740px){
+  .footer-privacy-link{font-size:13px;margin-bottom:14px;}
+  .privacy-main{padding:32px 18px 48px;}
+  .privacy-main h1{font-size:28px;}
+  .privacy-company-name{font-size:15px;margin-bottom:30px;}
+  .privacy-section{margin-bottom:28px;}
+  .privacy-section h2{font-size:18px;}
+  .privacy-section p{font-size:13px;line-height:1.85;}
+  .privacy-contact{padding:16px 14px;}
+  .privacy-back{font-size:11px;padding:8px 10px;}
+}
