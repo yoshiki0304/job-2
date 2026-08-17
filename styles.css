@@ -290,3 +290,64 @@
   .problem-banner span{font-size:14px;}
   .problem-banner strong{font-size:21px;}
 }
+
+
+/* v17 fix: remove speech bubble shape and make full-width rectangle */
+.problem-section{
+  display:block;
+}
+.problem-banner{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 0 20px 0 !important;
+  min-height:150px;
+  border-radius:0 !important;
+  padding:24px 16px !important;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:var(--red);
+  box-sizing:border-box;
+}
+.problem-banner::after,
+.problem-banner::before{
+  display:none !important;
+  content:none !important;
+}
+.problem-banner span,
+.problem-banner strong{
+  width:100%;
+  max-width:100%;
+  text-align:center !important;
+  margin:0 auto !important;
+}
+.problem-banner span{font-size:18px;line-height:1.2;}
+.problem-banner strong{font-size:30px;line-height:1.15;margin-top:6px !important;}
+.problem-banner .worried-face{display:none !important;}
+
+/* ensure uploaded LINE image is used clearly */
+.icon-image img{
+  width:78%;
+  height:78%;
+  object-fit:contain;
+  object-position:center;
+}
+
+@media (max-width:740px){
+  .problem-banner{
+    min-height:138px;
+    padding:20px 12px !important;
+    margin:0 0 16px 0 !important;
+  }
+  .problem-banner span{font-size:15px;}
+  .problem-banner strong{font-size:24px;line-height:1.12;}
+}
+@media (max-width:390px){
+  .problem-banner{
+    min-height:128px;
+    padding:16px 10px !important;
+  }
+  .problem-banner span{font-size:14px;}
+  .problem-banner strong{font-size:21px;}
+}
