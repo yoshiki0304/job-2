@@ -41,3 +41,26 @@
   .benefit-photo-card .benefit-copy h3{font-size:16px;}
   .benefit-photo-card .benefit-copy p{font-size:10px;}
 }
+
+
+/* v8 fixes */
+.problem-banner{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:18px 140px 18px 24px;}
+.problem-banner span,.problem-banner strong{max-width:100%;text-align:center;margin-left:0;margin-right:0;}
+.problem-banner span{font-size:21px;line-height:1.2;}
+.problem-banner strong{font-size:42px;line-height:1.12;}
+
+/* make benefit numbers clean and readable */
+.benefit-photo-card .no{font-family:Arial,sans-serif;text-shadow:none !important;letter-spacing:0;line-height:1;background:rgba(223,44,13,.96);color:#fff;border:3px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.18);min-width:60px;text-align:center;}
+.benefit-grid.benefit-photo-grid .benefit-photo-card .no::before,
+.benefit-grid.benefit-photo-grid .benefit-photo-card .no::after{content:none !important;}
+@media(max-width:740px){
+  .problem-banner{min-height:170px;padding:18px 118px 18px 14px;}
+  .problem-banner span{font-size:16px;line-height:1.2;}
+  .problem-banner strong{font-size:28px;line-height:1.12;}
+  .benefit-photo-card .no{min-width:48px;border-width:2px;}
+}
+@media(max-width:390px){
+  .problem-banner{min-height:176px;padding:16px 106px 16px 12px;}
+  .problem-banner span{font-size:14px;}
+  .problem-banner strong{font-size:24px;line-height:1.1;}
+}
