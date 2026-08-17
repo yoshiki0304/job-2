@@ -64,3 +64,39 @@
   .problem-banner span{font-size:14px;}
   .problem-banner strong{font-size:24px;line-height:1.1;}
 }
+
+
+/* v9 fixes */
+.problem-banner{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:18px 24px !important;overflow:visible;}
+.problem-banner span,.problem-banner strong{display:block;max-width:100% !important;width:100%;text-align:center !important;position:relative;z-index:2;margin:0 auto;}
+.problem-banner span{font-size:20px;line-height:1.2;}
+.problem-banner strong{font-size:40px;line-height:1.14;margin-top:6px;}
+.problem-banner .worried-face{position:absolute;right:18px;top:50%;transform:translateY(-50%);opacity:.28;z-index:1;}
+
+.benefit-photo-card .benefit-copy{min-height:140px;padding:14px 18px 16px;}
+.benefit-photo-card .benefit-copy .tag{font-size:15px;padding:6px 12px;margin-bottom:10px;font-weight:900;}
+.benefit-photo-card .benefit-copy h3{font-size:28px;line-height:1.18;font-weight:900;}
+.benefit-photo-card .benefit-copy h3 strong{font-size:1.22em;}
+.benefit-photo-card .benefit-copy p{margin-top:6px;font-size:15px;font-weight:800;color:#333;}
+
+.job-photo{height:240px;position:relative;overflow:hidden;background:#ddd;}
+.job-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.job-cards dl div{grid-template-columns:110px 1fr;}
+
+@media(max-width:740px){
+  .problem-banner{min-height:170px;padding:18px 14px !important;}
+  .problem-banner span{font-size:16px;}
+  .problem-banner strong{font-size:30px;line-height:1.12;}
+  .problem-banner .worried-face{right:12px;width:84px;height:84px;font-size:30px;}
+  .benefit-photo-card .benefit-copy{min-height:126px;padding:12px 14px 14px;}
+  .benefit-photo-card .benefit-copy .tag{font-size:12px;padding:5px 10px;margin-bottom:7px;}
+  .benefit-photo-card .benefit-copy h3{font-size:21px;}
+  .benefit-photo-card .benefit-copy p{font-size:12px;}
+  .job-photo{height:180px;}
+}
+@media(max-width:390px){
+  .problem-banner{min-height:178px;padding:16px 12px !important;}
+  .problem-banner span{font-size:14px;}
+  .problem-banner strong{font-size:25px;}
+  .problem-banner .worried-face{right:10px;width:76px;height:76px;font-size:28px;}
+}
