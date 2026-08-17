@@ -1,36 +1,28 @@
 (() => {
-  const date = new Date();
-  const label = document.getElementById('todayLabel');
-  if (label) label.textContent = `本日 ${date.getMonth()+1}月${date.getDate()}日`;
+  const d = new Date();
+  const el = document.getElementById('dateText');
+  if (el) el.textContent = `本日 ${d.getMonth()+1}月${d.getDate()}日`;
 
-  const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+  document.querySelectorAll('.faq-list details').forEach((detail) => {
+    detail.addEventListener('toggle', () => {
+      if (!detail.open) return;
+      document.querySelectorAll('.faq-list details').forEach((other) => {
+        if (other !== detail) other.open = false;
+      });
+    });
+  });
+
+  const targets = document.querySelectorAll('.benefit-card,.job-card,.voice-card,.step-card,.comic-page,.check-list');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
+        entry.target.animate([
+          {opacity:0, transform:'translateY(18px)'},
+          {opacity:1, transform:'translateY(0)'}
+        ], {duration:500, easing:'cubic-bezier(.2,.7,.2,1)', fill:'both'});
         io.unobserve(entry.target);
       }
     });
-  }, { threshold: .12, rootMargin: '0px 0px -30px' });
-  els.forEach(el => io.observe(el));
-
-  const sticky = document.getElementById('stickyCta');
-  const footer = document.querySelector('.footer');
-  if (sticky && footer) {
-    const footerObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => sticky.classList.toggle('is-hidden', entry.isIntersecting));
-    }, { threshold: .02 });
-    footerObserver.observe(footer);
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      if (!id || id === '#') return;
-      const target = document.querySelector(id);
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
+  }, {threshold:.12});
+  targets.forEach((el) => io.observe(el));
 })();
