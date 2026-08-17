@@ -575,3 +575,8 @@
 /* v21: remove problem banner and tighten spacing */
 .problem-section{padding-top:0 !important;}
 .problem-section .check-box{margin-top:0 !important;}
+
+
+/* v23 popup reliability */
+body.popup-open{overflow:hidden;}
+.line-popup-overlay{z-index:9999 !important;}
