@@ -100,3 +100,135 @@
   .problem-banner strong{font-size:25px;}
   .problem-banner .worried-face{right:10px;width:76px;height:76px;font-size:28px;}
 }
+
+
+/* v11 fix: center speech bubble text and tail */
+.problem-banner{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:22px 18px !important;
+}
+.problem-banner span,
+.problem-banner strong{
+  width:100%;
+  max-width:100% !important;
+  text-align:center !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.problem-banner span{font-size:20px; line-height:1.2;}
+.problem-banner strong{font-size:40px; line-height:1.12; margin-top:6px;}
+.problem-banner::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:-38px;
+  width:0;
+  height:0;
+  border-left:34px solid transparent;
+  border-right:34px solid transparent;
+  border-top:38px solid var(--red);
+}
+.problem-banner .worried-face{
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+  opacity:.18;
+  z-index:1;
+}
+.problem-banner span,
+.problem-banner strong{position:relative; z-index:2;}
+
+@media (max-width:740px){
+  .problem-banner{
+    min-height:175px;
+    padding:18px 14px !important;
+  }
+  .problem-banner span{font-size:16px;}
+  .problem-banner strong{font-size:30px;}
+  .problem-banner::after{
+    bottom:-28px;
+    border-left-width:26px;
+    border-right-width:26px;
+    border-top-width:28px;
+  }
+}
+
+@media (max-width:390px){
+  .problem-banner{
+    min-height:180px;
+    padding:16px 12px !important;
+  }
+  .problem-banner span{font-size:14px;}
+  .problem-banner strong{font-size:25px;}
+  .problem-banner::after{
+    bottom:-24px;
+    border-left-width:22px;
+    border-right-width:22px;
+    border-top-width:24px;
+  }
+}
+
+
+/* v12: show full job photos without cropping */
+.job-photo{
+  height:260px;
+  position:relative;
+  overflow:hidden;
+  background:#f4f4f4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px;
+}
+.job-photo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+  display:block;
+}
+@media (max-width:740px){
+  .job-photo{
+    height:210px;
+    padding:6px;
+  }
+  .job-photo img{
+    object-fit:contain;
+  }
+}
+@media (max-width:390px){
+  .job-photo{
+    height:190px;
+    padding:5px;
+  }
+}
+
+
+/* v13 logo and step icon updates */
+.brand{gap:10px;}
+.brand-slash{display:none !important;}
+.brand-logo{width:58px;height:58px;object-fit:cover;border-radius:50%;border:2px solid #e7e7e7;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.12);flex:0 0 auto;}
+.brand strong{font-size:22px;}
+.brand small{font-size:10px;}
+.footer-logo-wrap{display:flex;justify-content:center;margin-bottom:14px;}
+.footer-logo-wrap img{width:200px;max-width:70%;height:auto;border-radius:18px;background:#fff;padding:8px;}
+
+.icon-image{background:#f7f7f7;overflow:hidden;}
+.icon-image img{width:72%;height:72%;object-fit:contain;display:block;}
+
+.logo-face{background:#fff !important;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:10px;}
+.logo-face img{width:100%;height:100%;object-fit:contain;display:block;}
+
+@media(max-width:740px){
+  .brand-logo{width:46px;height:46px;}
+  .brand strong{font-size:17px;}
+  .brand small{font-size:8px;}
+  .footer-logo-wrap img{width:170px;max-width:76%;padding:6px;}
+}
