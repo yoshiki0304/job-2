@@ -1,15 +1,17 @@
 寮 求人 名古屋 LP
 
-・index.html
-・styles.css
-・script.js
+【公開方法】
+index.html / styles.css / script.js / assets フォルダを同じ階層のままアップロードしてください。
+GitHub Pages / Xserver の静的公開に対応しています。
 
-GitHub Pages / Xserver の公開フォルダへそのままアップロードできます。
-LINEリンク: https://lin.ee/xo4sCJy
+【LINE URL】
+https://lin.ee/xo4sCJy
 
-公開前に以下を実情報へ変更してください。
-1. 運営会社名
-2. 有料職業紹介事業の許可番号
-3. 求人条件
-4. 生活支援金の適用条件
-5. プライバシーポリシーURL
+【公開前に必ず変更・確認する箇所】
+・実際の求人条件
+・生活支援金10万円の支給条件
+・運営会社名
+・有料職業紹介事業の許可番号
+・プライバシーポリシー等の法定表記
+
+参考LPの強い赤・黄・黒の配色、縦長漫画、利用特典、求人紹介、4STEP、FAQ、固定LINE CTAという設計思想を踏襲しつつ、画像・漫画・文章はオリジナルで制作しています。
